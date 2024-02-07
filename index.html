@@ -41,8 +41,9 @@
 
       jQuery(document).ready(function($) // страница прогружена
       {
+        console.log("STARTED INIT BRIDGE")
         vkBridge.send("VKWebAppInit", {});
-
+        console.log("STARTED INIT ADS")
         vkBridge.send('VKWebAppCheckNativeAds', { ad_format: 'reward' })
                 .then((data) => {
                   if (data.result) 
