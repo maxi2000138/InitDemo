@@ -44,6 +44,7 @@
         console.log("STARTED INIT BRIDGE")
         vkBridge.send("VKWebAppInit", {});
         console.log("STARTED INIT ADS")
+/*
         vkBridge.send('VKWebAppCheckNativeAds', { ad_format: 'reward' })
                 .then((data) => {
                   if (data.result) 
@@ -54,7 +55,8 @@
                     console.log('Рекламные материалы не найдены.');
                   }
                 })
-                .catch((error) => { console.log(error); /* Ошибка */  });
+                .catch((error) => { console.log(error); /!* Ошибка *!/  });
+*/
       });
         
     </script>
