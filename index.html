@@ -15,13 +15,34 @@
       <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
   
       <script>
-  
+
+        function RocketRewardAd()   // функция вызывается из Unity
+        {
+          vkBridge.send('VKWebAppShowNativeAds', { ad_format: 'reward' })
+                  .then((data) =>
+                  {
+                    if (data.result)
+                    {
+                      console.log('Реклама показана');
+                      return true;
+                    }
+                    else
+                    {
+                      console.log('Ошибка при показе');
+                    }
+                  })
+                  .catch((error) => { console.log(error); /!* Ошибка *!/ });
+
+          return false;
+        }
+        
         var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Lesson_build.json", {onProgress: UnityProgress}); // запуск unity на странице
   
   
         jQuery(document).ready(function($) // страница прогружена
         {
           vkBridge.send("VKWebAppInit", {});
+          
         });
           
       </script>
