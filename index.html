@@ -12,13 +12,10 @@
       <!-- Additional head modules -->
       <!-- Yandex Games SDK -->
       <script src="https://yandex.ru/games/sdk/v2"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
       <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
   
       <script>
-        
-        var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Lesson_build.json", {onProgress: UnityProgress}); // запуск unity на странице
-  
-  
         jQuery(document).ready(function($) // страница прогружена
         {
           vkBridge.send("VKWebAppInit", {});
