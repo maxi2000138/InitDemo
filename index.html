@@ -40,6 +40,12 @@
         {
           console.log("STARTED INIT BRIDGE");
           vkBridge.send("VKWebAppInit", {});
+
+          vkBridge.subscribe((e) = {
+            if(e.type == "VKWebAppInit") {
+          console.log(e.data.status);
+        }});
+          
           console.log("STARTED INIT ADS");
   
           vkBridge.send('VKWebAppCheckNativeAds', { ad_format: 'reward' })
