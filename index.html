@@ -40,12 +40,20 @@
         {
           console.log("STARTED INIT BRIDGE");
 
-          vkBridge.subscribe((e) => {
-            if (e.type === "VKWebAppInit") {
-              console.log(e.data.status);
-            }
-          });
-          vkBridge.send("VKWebAppInit", {});
+          vkBridge.send('VKWebAppInit')
+                  .then((data) => {
+                    if (data.result) 
+                    {
+                      console.log("Bridge succesfull initialized")
+                    } else 
+                    {
+                      console.log("Bridge not initialized")
+                    }
+                  })
+                  .catch((error) => {
+                    // Ошибка
+                    console.log(error);
+                  });
           
           console.log("STARTED INIT ADS");
   
