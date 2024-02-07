@@ -16,6 +16,7 @@
 
     <script>
 
+/*
       function RocketRewardAd()   // функция вызывается из Unity
       {
         vkBridge.send('VKWebAppShowNativeAds', { ad_format: 'reward' })
@@ -31,10 +32,11 @@
                     console.log('Ошибка при показе');
                   }
                 })
-                .catch((error) => { console.log(error); /* Ошибка */ });
+                .catch((error) => { console.log(error); /!* Ошибка *!/ });
         
         return false;
       }
+*/
 
       var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Lesson_build.json", {onProgress: UnityProgress}); // запуск unity на странице
 
