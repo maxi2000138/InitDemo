@@ -16,7 +16,7 @@
       <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
   
       <script>
-        function RocketRewardAd()   // функция вызывается из Unity
+        function TryShowReward()   // функция вызывается из Unity
         {
           vkBridge.send('VKWebAppShowNativeAds', { ad_format: 'reward' })
                   .then((data) => 
