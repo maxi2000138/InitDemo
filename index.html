@@ -16,19 +16,21 @@
       <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
   
       <script>
-        function TryShowReward()   // функция вызывается из Unity
+        function ShowReward()   // функция вызывается из Unity
         {
           vkBridge.send('VKWebAppShowNativeAds', { ad_format: 'reward' })
                   .then((data) => 
                   {
+                    data.show
                     if (data.result)
                     {
                       console.log('Реклама показана');
-                      return true;  
+                      myGameInstance.SendMessage('JSBridge', 'SuccesRewardAd');
                     }
                     else
                     {
                       console.log('Ошибка при показе');
+                      myGameInstance.SendMessage('JSBridge', 'FailedRewardAd');
                     }
                   })
                   .catch((error) => { console.log("error: " + error); });
@@ -36,7 +38,7 @@
           return false;
         }
         
-        function OnGameLoaded()
+        function GameLoaded()
         {
           console.log("STARTED INIT ADS");
 
