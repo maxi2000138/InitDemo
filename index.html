@@ -71,6 +71,27 @@
                     console.log(error);
                   });
         });
+        
+        function OnShowLeaderboard()
+        {
+            vkBridge.send('VKWebAppShowInviteBox', {
+              requestKey: 'key-12345' /* Необязательный параметр. Ключ приглашения. */
+            })
+                    .then( (data) => {
+                      if (data.success) 
+                      {
+                        console.log("success");
+                        //myGameInstance.SendMessage('VKPlugin', 'SuccessInitAd');
+                      }
+                    })
+                    .catch( (e) => {
+                      let { error_code, error_reason } = e.error_data;
+                      if( error_code == 4 && error_reason == 'User denied') {
+                        console.log("failed");
+                        // Пользователь нажал «Отмена» в диалоге
+                      }
+                    });
+        }
           
       </script>
       
